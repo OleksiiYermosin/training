@@ -11,10 +11,9 @@ public class Model {
     private int counter;
     private final List<Integer> log = new ArrayList<>();
 
-    public int initializeSecretNumber() {
+    public void initializeSecretNumber() {
         secretNumber = (int) Math.ceil(Math.random() *
                 (upperBound - lowerBound - 1) + lowerBound);
-        return secretNumber;
     }
 
     public void setPrimaryBounds(int lowerBound, int upperBound) {
@@ -32,6 +31,10 @@ public class Model {
         }
         lowerBound = value;
         return 2;
+    }
+
+    public int getSecretNumber() {
+        return secretNumber;
     }
 
     public int getLowerBound() {

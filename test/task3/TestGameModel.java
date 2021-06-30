@@ -13,12 +13,17 @@ public class TestGameModel {
         model.setPrimaryBounds(0, 5);
     }
 
+
+
     @Test
     public void testRandomGenerator() {
-        model.setPrimaryBounds(0, 5);
-        int value = model.initializeSecretNumber();
-        if (value >= model.getUpperBound() || value <= model.getLowerBound()) {
-            Assert.fail();
+        int value;
+        for(int i = 0; i < 100000; i++){
+            model.initializeSecretNumber();
+            value = model.getSecretNumber();
+            if (value >= model.getUpperBound() || value <= model.getLowerBound()) {
+                Assert.fail();
+            }
         }
     }
 
@@ -32,19 +37,22 @@ public class TestGameModel {
 
     @Test
     public void testIsGuessed() {
-        int value = model.initializeSecretNumber();
+        model.initializeSecretNumber();
+        int value = model.getSecretNumber();
         Assert.assertEquals(0, model.isGuessed(value));
     }
 
     @Test
     public void testIsLess() {
-        int value = model.initializeSecretNumber() - 1;
+        model.initializeSecretNumber();
+        int value = model.getSecretNumber() - 1;
         Assert.assertEquals(2, model.isGuessed(value));
     }
 
     @Test
     public void testIsBigger() {
-        int value = model.initializeSecretNumber() + 1;
+        model.initializeSecretNumber();
+        int value = model.getSecretNumber() + 1;
         Assert.assertEquals(1, model.isGuessed(value));
     }
 
