@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between">
+            <a href="/" class="d-flex align-items-center mb-lg-0 text-white text-decoration-none">
+                <p th:text="#{header.service.name}" style="margin: 0; font-size: 24px; color: #ffc107"></p>
+            </a>
+            <div style="display: flex" class="text-end">
+                <a href="/login" th:text="#{header.login.value}" class="btn btn-warning me-2">Login</a>
+                <a href="/register" th:text="#{header.signUp.value}" class="btn btn-warning me-4">Sign-up</a>
+                <form style="display: flex" method="get" action="/main" id="lang-switcher">
+                    <button type="submit" class="btn btn-warning me-2" name="locale" value="ua">
+                        UA
+                    </button>
+                    <button type="submit" class="btn btn-warning" name="locale" value="en">
+                        ENG
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<div style="background-color: #FFEBB6; min-height: 583px; ">
+</div>
+<footer style="min-height: 70px" class="p-3 bg-dark text-white"></footer>
+</body>
+</html>
